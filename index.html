@@ -1128,11 +1128,12 @@ footer {
   .hero-bar-cell:nth-child(2n) { border-right: none; }
   .hero-bar-cell:nth-child(n+3) { border-top: 1px solid var(--light); }
   .hero-bar-value.num { font-size: 1.3rem; }
-  .hero-bar-label { font-size: 0.48rem; }
+  .hero-bar-label { font-size: 0.46rem; letter-spacing: 0.08em; }
 
   /* ABOUT */
-  .about-h { font-size: 1.6rem !important; line-height: 0.92; }
-  .stat-n { font-size: 1.6rem; }
+  .about-h { font-size: 1.5rem !important; line-height: 0.95; margin-bottom: 2rem; }
+  .stat-n { font-size: 1.5rem; }
+  .stat { padding: 0.85rem 0.75rem; }
 
   /* BACKGROUND */
   .bg-h { font-size: 1.6rem !important; line-height: 0.92; }
@@ -1148,7 +1149,7 @@ footer {
   .pitch-item { gap: 1rem; padding: 1.25rem 0; }
   .pitch-num { font-size: 2.5rem !important; min-width: 70px; letter-spacing: 0; }
   .pitch-label { font-size: 0.78rem; }
-  .pw { font-size: 1.2rem !important; }
+  .pw { font-size: 1.1rem !important; letter-spacing: 0.02em; }
 
   /* WORK */
   .case-row { grid-template-columns: 1.5rem 1fr auto; gap: 0.65rem; }
@@ -1160,7 +1161,7 @@ footer {
   .chip { font-size: 0.48rem; }
 
   /* SKILLS */
-  .skills-h { font-size: 1.9rem !important; line-height: 0.92; }
+  .skills-h { font-size: 1.7rem !important; line-height: 0.92; }
   .skill-name { font-size: 0.73rem; }
   .skill-col-label { font-size: 0.52rem; }
 
@@ -1216,6 +1217,12 @@ footer {
     max-width: 100%;
     white-space: normal !important;
   }
+}
+
+@media (max-width: 600px) {
+  .bg-intro { font-size: 0.8rem; line-height: 1.7; }
+  .section-tag { font-size: 0.55rem; }
+  .hero-bar-cell:first-child { border-left: none; }
 }
 </style>
 </head>
@@ -1707,8 +1714,7 @@ footer {
     <div>
       <div class="section-tag" style="color:rgba(244,242,237,0.3)">Contact</div>
       <h2 class="contact-h">
-        Let's<br>
-        build<br>
+        Let's build<br>
         <span class="red">together.</span>
       </h2>
       <p class="contact-p">Open to senior roles in luxury fashion photography, studio operations, and creative team leadership — in Milan and internationally.</p>
