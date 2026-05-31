@@ -1055,14 +1055,14 @@ footer {
   .hero-bar-cell:nth-child(n+4) { border-top: 1px solid var(--light); }
 
   /* ABOUT */
-  #about { grid-template-columns: 1fr; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
-  .about-left { position: static; max-width: 100%; overflow: hidden; }
+  #about { grid-template-columns: 1fr !important; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
+  .about-left { position: static !important; max-width: 100%; overflow: hidden; }
   .about-h { font-size: 2.2rem !important; line-height: 0.9; max-width: 100%; }
   .about-stats { grid-template-columns: 1fr 1fr; }
 
   /* BACKGROUND */
   #background { padding-top: 3.5rem; padding-bottom: 4rem; }
-  .bg-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .bg-inner { grid-template-columns: 1fr !important; gap: 2.5rem; }
   .bg-left { position: static; max-width: 100%; overflow: hidden; }
   .bg-h { font-size: 2.2rem !important; line-height: 0.9; max-width: 100%; }
   .bg-item { grid-template-columns: 65px 1fr; gap: 1.25rem; }
@@ -1098,7 +1098,7 @@ footer {
 
   /* CONTACT */
   #contact { padding-top: 3rem; padding-bottom: 3.5rem; }
-  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem; }
   .contact-h { font-size: 2.8rem !important; line-height: 0.9; max-width: 100%; }
   .contact-right { padding-top: 0; }
 
@@ -1203,6 +1203,18 @@ footer {
   section, nav, footer, .hero-bar {
     max-width: 100vw;
     overflow-x: hidden;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-left, .bg-left, .contact-grid > div {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .about-h, .bg-h, .contact-h, .skills-h {
+    max-width: 100%;
+    white-space: normal !important;
   }
 }
 </style>
@@ -1804,15 +1816,20 @@ document.querySelectorAll('.drawer-link').forEach(a => {
 // ── BACKGROUND TIMELINE ANIMATION ──
 const bgItems = document.querySelectorAll('.bg-item');
 const bgObs = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const idx = Array.from(bgItems).indexOf(entry.target);
-      setTimeout(() => entry.target.classList.add('visible'), idx * 100);
+      setTimeout(() => entry.target.classList.add('visible'), idx * 80);
       bgObs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
 bgItems.forEach(el => bgObs.observe(el));
+
+// Safari iOS fallback: if items still hidden after 1.5s, force visible
+setTimeout(() => {
+  bgItems.forEach(el => el.classList.add('visible'));
+}, 1500);
 
 // ── PITCH SCROLL ANIMATION ──
 const pitchEls = document.querySelectorAll('.pitch-item, .pitch-words');
@@ -1825,8 +1842,13 @@ const pitchObs = new IntersectionObserver((entries) => {
       pitchObs.unobserve(el);
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
 pitchEls.forEach(el => pitchObs.observe(el));
+
+// Safari iOS fallback
+setTimeout(() => {
+  pitchEls.forEach(el => el.classList.add('visible'));
+}, 1500);
 
 // ── CASE STUDY TOGGLE ──
 function tog(row) {
