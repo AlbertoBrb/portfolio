@@ -1029,6 +1029,124 @@ footer {
 .scroll-top.show { opacity: 1; transform: translateY(0); }
 .scroll-top:hover { background: var(--red); }
 
+
+/* ── BACKGROUND ── */
+#background {
+  padding: 5rem 2.5rem;
+  border-bottom: 1px solid var(--light);
+}
+
+.bg-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.bg-left { position: sticky; top: 6rem; }
+
+.bg-h {
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+.bg-h .sub {
+  display: block;
+  color: var(--mid);
+}
+
+.bg-intro {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+.bg-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bg-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--light);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.bg-item:first-child { padding-top: 0; }
+.bg-item:last-child { border-bottom: none; }
+.bg-item.visible { opacity: 1; transform: translateY(0); }
+
+.bg-period {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding-top: 0.2rem;
+  line-height: 1.5;
+}
+.bg-period strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.bg-content {}
+
+.bg-role {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+.bg-company {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.75rem;
+}
+
+.bg-desc {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--mid);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+.bg-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+.bg-tag {
+  font-size: 0.54rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+  border: 1px solid var(--light);
+  padding: 0.2rem 0.5rem;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 1.25rem 1.5rem; }
