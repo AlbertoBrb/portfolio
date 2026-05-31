@@ -1034,33 +1034,139 @@ footer {
   nav { padding: 1.25rem 1.5rem; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
-  #hero, #about, #work, #skills, #photography, #contact, footer, .divider {
+  .nav-drawer { display: flex; }
+
+  #hero, #about, #background, #pitch,
+  #work, #skills, #photography, #contact,
+  footer, .divider {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-  #about { grid-template-columns: 1fr; gap: 4rem; }
+
+  /* HERO */
+  #hero { min-height: auto; }
+  .hero-main { padding: 5.5rem 1.5rem 2rem; flex-direction: column; }
+  .hero-content-row { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-left { border-right: none; padding-right: 0; padding-bottom: 2rem; border-bottom: 1px solid var(--light); }
+  .hero-h1 { font-size: clamp(3rem, 13vw, 5rem); }
+  .hero-right { padding-left: 0; padding-top: 0; }
+  .hero-desc { max-width: 100%; }
+  .hero-bar { grid-template-columns: repeat(3, 1fr); }
+  .hero-bar-cell:nth-child(n+4) { border-top: 1px solid var(--light); }
+
+  /* ABOUT */
+  #about { grid-template-columns: 1fr; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
   .about-left { position: static; }
-  .skills-header { flex-direction: column; gap: 2rem; }
-  .skills-intro { max-width: 100%; text-align: left; }
-  .skills-cols { grid-template-columns: 1fr 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 4rem; }
-  .photo-grid { grid-template-columns: repeat(3, 1fr); }
-  .case-body-content { padding-left: 3.5rem; grid-template-columns: 1fr; }
-  .photo-header { flex-direction: column; gap: 1rem; }
-  .photo-sub { text-align: left; max-width: 100%; }
-  #hero { grid-template-columns: 1fr; }
-  .hero-right { border-top: 1px solid var(--light); padding: 2rem 0; }
-  .hero-left { border-right: none; padding-right: 0; }
+  .about-h { font-size: 2.2rem; line-height: 0.9; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+
+  /* BACKGROUND */
+  #background { padding-top: 3.5rem; padding-bottom: 4rem; }
+  .bg-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .bg-left { position: static; }
+  .bg-h { font-size: 2.2rem; line-height: 0.9; }
+  .bg-item { grid-template-columns: 65px 1fr; gap: 1.25rem; }
+  .bg-period strong { font-size: 1.1rem; }
+
+  /* PITCH */
+  #pitch { padding: 3rem 1.5rem; }
+  .pitch-item { gap: 1.25rem; padding: 1.5rem 0; }
+  .pitch-num { font-size: clamp(2.8rem, 13vw, 5rem); min-width: 90px; }
+  .pitch-label { font-size: 0.88rem; }
+  .pitch-words { gap: 1rem; }
+  .pw { font-size: clamp(1.4rem, 6vw, 2.5rem); }
+
+  /* WORK */
+  #work { padding-bottom: 4rem; }
+  .case-row { grid-template-columns: 2rem 1fr auto; gap: 1rem; padding: 1.5rem 0; }
+  .case-body-content { padding-left: 3rem; grid-template-columns: 1fr; gap: 1.5rem; }
+
+  /* SKILLS */
+  #skills { padding: 3rem 1.5rem 4rem; }
+  .skills-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; }
+  .skills-h { font-size: 2.5rem; line-height: 0.9; }
+  .skills-intro { max-width: 100%; text-align: left; padding-bottom: 0; }
+  .skills-cols { grid-template-columns: 1fr; }
+  .skill-col { padding: 1.5rem 1.25rem; }
+
+  /* PHOTOGRAPHY */
+  #photography { padding-top: 3rem; padding-bottom: 3.5rem; }
+  .photo-header { flex-direction: column; gap: 0.75rem; margin-bottom: 1.25rem; }
+  .photo-h { font-size: 2rem; }
+  .photo-sub { text-align: left; max-width: 100%; font-size: 0.8rem; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* CONTACT */
+  #contact { padding-top: 3rem; padding-bottom: 3.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-h { font-size: 3rem; line-height: 0.9; }
+  .contact-right { padding-top: 0; }
+
+  /* FOOTER */
+  footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 }
 
 @media (max-width: 600px) {
-  .hero-h1 { font-size: 3.5rem; }
-  .skills-cols { grid-template-columns: 1fr; }
-  .photo-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-stats { grid-template-columns: 1fr 1fr; }
-  .case-row { grid-template-columns: 2.5rem 1fr auto; gap: 1rem; }
-  .scroll-top { bottom: 1.5rem; right: 1.5rem; }
+  nav { padding: 1rem 1.25rem; }
+
+  #hero, #about, #background, #pitch,
+  #work, #skills, #photography, #contact,
+  footer, .divider {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* HERO */
+  .hero-main { padding: 5rem 1.25rem 1.75rem; }
+  .hero-h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .hero-desc { font-size: 0.85rem; }
+
+  /* Hero bar: 2 cols × 3 rows */
+  .hero-bar { grid-template-columns: 1fr 1fr; }
+  .hero-bar-cell { padding: 0.9rem 1rem; border-right: 1px solid var(--light); }
+  .hero-bar-cell:nth-child(even) { border-right: none; }
+  .hero-bar-cell:nth-child(n+3) { border-top: 1px solid var(--light); }
+  .hero-bar-cell:nth-child(n+4) { border-top: none; }
+  .hero-bar-value.num { font-size: 1.4rem; }
+
+  /* ABOUT */
+  .about-h { font-size: 1.9rem; }
+  .stat-n { font-size: 1.8rem; }
+
+  /* BACKGROUND */
+  .bg-h { font-size: 1.9rem; }
+  .bg-item { grid-template-columns: 55px 1fr; gap: 0.9rem; }
+  .bg-period strong { font-size: 0.95rem; }
+  .bg-role { font-size: 0.82rem; }
+  .bg-desc { font-size: 0.78rem; }
+  .bg-tags { display: none; }
+
+  /* PITCH */
+  .pitch-num { min-width: 75px; font-size: clamp(2.2rem, 12vw, 3.5rem); }
+  .pitch-label { font-size: 0.8rem; }
+  .pw { font-size: clamp(1.2rem, 7vw, 2rem); }
+
+  /* WORK */
+  .case-row { grid-template-columns: 1.75rem 1fr auto; gap: 0.75rem; }
+  .case-t { font-size: 0.88rem; }
+  .case-body-content { padding-left: 2.5rem; }
+  .case-desc { font-size: 0.8rem; }
+  .case-outcome { font-size: 0.8rem; }
+
+  /* SKILLS */
+  .skills-h { font-size: 2rem; }
+  .skill-name { font-size: 0.75rem; }
+
+  /* CONTACT */
+  .contact-h { font-size: 2.5rem; line-height: 0.9; }
+  .avail-t { font-size: 1.1rem; }
+  .avail-roles { gap: 0.3rem; }
+  .avail-role { font-size: 0.5rem; padding: 0.2rem 0.5rem; }
+
+  /* SCROLL TOP */
+  .scroll-top { bottom: 1.25rem; right: 1.25rem; width: 36px; height: 36px; }
 }
+
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
