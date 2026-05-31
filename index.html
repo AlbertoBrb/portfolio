@@ -1055,16 +1055,16 @@ footer {
   .hero-bar-cell:nth-child(n+4) { border-top: 1px solid var(--light); }
 
   /* ABOUT */
-  #about { grid-template-columns: 1fr !important; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
-  .about-left { position: static !important; max-width: 100%; overflow: hidden; }
+  #about { grid-template-columns: 1fr; gap: 3rem; padding-top: 3.5rem; padding-bottom: 4rem; }
+  .about-left { position: static; max-width: 100%; overflow: hidden; }
   .about-h { font-size: 2.2rem !important; line-height: 0.9; max-width: 100%; }
   .about-stats { grid-template-columns: 1fr 1fr; }
 
   /* BACKGROUND */
   #background { padding-top: 3.5rem; padding-bottom: 4rem; }
-  .bg-inner { grid-template-columns: 1fr !important; gap: 2.5rem; }
+  .bg-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .bg-left { position: static; max-width: 100%; overflow: hidden; }
-  .bg-h { font-size: 2.2rem !important; line-height: 0.9; max-width: 100%; }
+  .bg-h { font-size: 2.2rem; line-height: 0.9; max-width: 100%; }
   .bg-item { grid-template-columns: 65px 1fr; gap: 1.25rem; }
   .bg-period strong { font-size: 1.1rem; }
 
@@ -1098,8 +1098,8 @@ footer {
 
   /* CONTACT */
   #contact { padding-top: 3rem; padding-bottom: 3.5rem; }
-  .contact-grid { grid-template-columns: 1fr !important; gap: 2.5rem; }
-  .contact-h { font-size: 2.8rem !important; line-height: 0.9; max-width: 100%; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-h { font-size: 2.8rem; line-height: 0.9; max-width: 100%; }
   .contact-right { padding-top: 0; }
 
   /* FOOTER */
@@ -1118,7 +1118,7 @@ footer {
 
   /* HERO */
   .hero-main { padding: 5rem 1.25rem 1.75rem; }
-  .hero-h1 { font-size: 3rem !important; }
+  .hero-h1 { font-size: 3rem; }
   .hero-desc { font-size: 0.82rem; }
   .hero-tag { font-size: 0.55rem; letter-spacing: 0.1em; }
 
@@ -1131,7 +1131,7 @@ footer {
   .hero-bar-label { font-size: 0.46rem; letter-spacing: 0.08em; }
 
   /* ABOUT */
-  .about-h { font-size: 1.5rem !important; line-height: 0.95; margin-bottom: 2rem; }
+  .about-h { font-size: 1.5rem; line-height: 0.95; margin-bottom: 2rem; }
   .stat-n { font-size: 1.5rem; }
   .stat { padding: 0.85rem 0.75rem; }
 
@@ -1147,9 +1147,9 @@ footer {
 
   /* PITCH */
   .pitch-item { gap: 1rem; padding: 1.25rem 0; }
-  .pitch-num { font-size: 2.5rem !important; min-width: 70px; letter-spacing: 0; }
+  .pitch-num { font-size: 2.5rem; min-width: 70px; letter-spacing: 0; }
   .pitch-label { font-size: 0.78rem; }
-  .pw { font-size: 1.1rem !important; letter-spacing: 0.02em; }
+  .pw { font-size: 1.1rem; letter-spacing: 0.02em; }
 
   /* WORK */
   .case-row { grid-template-columns: 1.5rem 1fr auto; gap: 0.65rem; }
@@ -1161,16 +1161,16 @@ footer {
   .chip { font-size: 0.48rem; }
 
   /* SKILLS */
-  .skills-h { font-size: 1.7rem !important; line-height: 0.92; }
+  .skills-h { font-size: 1.7rem; line-height: 0.92; }
   .skill-name { font-size: 0.73rem; }
   .skill-col-label { font-size: 0.52rem; }
 
   /* PHOTOGRAPHY */
-  .photo-h { font-size: 1.7rem !important; }
+  .photo-h { font-size: 1.7rem; }
   .photo-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* CONTACT */
-  .contact-h { font-size: 2.2rem !important; line-height: 0.9; }
+  .contact-h { font-size: 2.2rem; line-height: 0.9; }
   .clink-n { font-size: 0.7rem; }
   .avail-t { font-size: 1rem; }
   .avail-p { font-size: 0.75rem; }
@@ -1225,13 +1225,14 @@ footer {
   .hero-bar-cell:first-child { border-left: none; }
 }
 
-/* Safari iOS link color reset */
-#contact a,
-#contact a:link,
-#contact a:visited,
-.clink,
-.clink:link,
-.clink:visited,
+/* Safari iOS link color reset - scoped to dark contact section */
+#contact .clink,
+#contact .clink:link,
+#contact .clink:visited {
+  color: var(--bg);
+  -webkit-text-fill-color: var(--bg);
+  text-decoration: none;
+}
 .cv-dl-item-dark,
 .cv-dl-item-dark:link,
 .cv-dl-item-dark:visited {
@@ -1264,6 +1265,98 @@ footer {
   #background { padding-top: 3rem; padding-bottom: 3.5rem; }
   .bg-timeline { gap: 0; }
 }
+
+/* ── CV DROPDOWN ── */
+.cv-dl {
+  position: relative;
+}
+
+.cv-dl-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mid);
+  background: none;
+  border: 1px solid var(--light);
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  transition: color .2s, border-color .2s;
+  font-family: var(--body);
+}
+.cv-dl-btn:hover { color: var(--ink); border-color: var(--ink); }
+.cv-dl-btn::after {
+  content: '↓';
+  font-size: 0.65rem;
+  transition: transform .25s ease;
+  display: inline-block;
+}
+.cv-dl.open .cv-dl-btn::after { transform: rotate(180deg); }
+
+.cv-dl-menu {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  background: var(--bg);
+  border: 1px solid var(--light);
+  min-width: 160px;
+  display: none;
+  flex-direction: column;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(15,15,13,0.08);
+}
+.cv-dl.open .cv-dl-menu { display: flex; }
+
+.cv-dl-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--light);
+  transition: background .15s, padding-left .15s;
+}
+.cv-dl-item:last-child { border-bottom: none; }
+.cv-dl-item:hover { background: #ece9e2; padding-left: 1.25rem; }
+.cv-dl-item span { color: var(--mid); font-size: 0.62rem; }
+
+.cv-dl-menu-dark {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0; right: 0;
+  background: #1a1a18;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: none;
+  flex-direction: column;
+  z-index: 200;
+}
+.cv-dl.open .cv-dl-menu-dark { display: flex; }
+
+.cv-dl-item-dark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bg);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: padding-left .15s;
+}
+.cv-dl-item-dark:last-child { border-bottom: none; }
+.cv-dl-item-dark:hover { padding-left: 0.5rem; }
+.cv-dl-item-dark span { color: rgba(244,242,237,0.3); font-size: 0.62rem; }
 </style>
 </head>
 <body>
