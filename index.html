@@ -1224,6 +1224,46 @@ footer {
   .section-tag { font-size: 0.55rem; }
   .hero-bar-cell:first-child { border-left: none; }
 }
+
+/* Safari iOS link color reset */
+#contact a,
+#contact a:link,
+#contact a:visited,
+.clink,
+.clink:link,
+.clink:visited,
+.cv-dl-item-dark,
+.cv-dl-item-dark:link,
+.cv-dl-item-dark:visited {
+  color: var(--bg);
+  -webkit-text-fill-color: var(--bg);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .bg-item {
+    padding: 2rem 0;
+    gap: 1.5rem;
+  }
+  .bg-item:first-child { padding-top: 0.5rem; }
+  .bg-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .bg-role { margin-bottom: 0.2rem; }
+  .bg-company { margin-bottom: 0.5rem; }
+}
+
+@media (max-width: 600px) {
+  .bg-item { padding: 1.75rem 0; gap: 1.25rem; }
+  .bg-desc {
+    -webkit-line-clamp: 2;
+  }
+  #background { padding-top: 3rem; padding-bottom: 3.5rem; }
+  .bg-timeline { gap: 0; }
+}
 </style>
 </head>
 <body>
