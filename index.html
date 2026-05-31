@@ -2119,6 +2119,39 @@ function tog(row) {
 const scrollTopBtn = document.getElementById('scroll-top');
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+
+// ── CV DROPDOWN ──
+const navCvDl = document.getElementById('nav-cv-dl');
+const navCvBtn = navCvDl.querySelector('.cv-dl-btn');
+
+navCvBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = navCvDl.classList.toggle('open');
+  navCvBtn.setAttribute('aria-expanded', isOpen);
+});
+
+document.addEventListener('click', () => {
+  navCvDl.classList.remove('open');
+  navCvBtn.setAttribute('aria-expanded', false);
+});
+
+function toggleCvDl(id, el) {
+  const wrap = document.getElementById(id);
+  const isOpen = wrap.classList.toggle('open');
+  const arr = wrap.querySelector('.clink-arr');
+  if (arr) arr.textContent = isOpen ? '↑' : '↓';
+  el.setAttribute('aria-expanded', isOpen);
+}
+
+// Close contact dropdown on outside click
+document.addEventListener('click', (e) => {
+  const contactDl = document.getElementById('contact-cv-dl');
+  if (contactDl && !contactDl.contains(e.target)) {
+    contactDl.classList.remove('open');
+    const arr = contactDl.querySelector('.clink-arr');
+    if (arr) arr.textContent = '↓';
+  }
+});
 </script>
 </body>
 </html>
