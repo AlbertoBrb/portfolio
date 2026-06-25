@@ -861,13 +861,16 @@ nav.scrolled {
   transition: opacity .25s;
 }
 .photo-cell:hover::after { opacity: 1; }
+.photo-cell.has-img::after { color: var(--bg); background: linear-gradient(transparent, rgba(15,15,13,0.85)); }
 .photo-cell img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity .3s;
+  transition: opacity .4s, transform .4s;
 }
+.photo-cell.has-img img { opacity: 1; }
+.photo-cell.has-img:hover img { transform: scale(1.04); }
 .photo-cell:hover { background: #e8e5de; }
 .photo-cell-l {
   font-size: 0.54rem;
@@ -881,6 +884,8 @@ nav.scrolled {
   transition: color .2s;
 }
 .photo-cell:hover .photo-cell-l { color: var(--mid); }
+.photo-cell.has-img .photo-cell-l,
+.photo-cell.has-img .photo-cell-icon { display: none; }
 .photo-cell-icon {
   width: 16px; height: 16px;
   color: var(--light);
@@ -1395,21 +1400,12 @@ footer {
     gap: 1.5rem;
   }
   .bg-item:first-child { padding-top: 0.5rem; }
-  .bg-desc {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
   .bg-role { margin-bottom: 0.2rem; }
   .bg-company { margin-bottom: 0.5rem; }
 }
 
 @media (max-width: 600px) {
   .bg-item { padding: 1.75rem 0; gap: 1.25rem; }
-  .bg-desc {
-    -webkit-line-clamp: 2;
-  }
   #background { padding-top: 3rem; padding-bottom: 3.5rem; }
   .bg-timeline { gap: 0; }
 }
@@ -1606,7 +1602,7 @@ footer {
       </div>
       <div class="hero-right">
         <p class="hero-desc">
-          I build the systems, develop the teams, and create the conditions that make <strong>great photography possible at scale</strong> — inside NET-A-PORTER and MR PORTER, four years and counting.
+          I build the systems, develop the teams, and create the conditions that make <strong>great photography possible at scale</strong>, inside NET-A-PORTER and MR PORTER, four years and counting.
         </p>
       </div>
     </div>
@@ -1675,13 +1671,13 @@ footer {
 
   <div class="about-body">
     <p>
-      I'm a studio operations specialist and still life photographer with <strong>9 years of cross-disciplinary experience</strong> — from agency creative and corporate media to four years embedded inside <strong>NET-A-PORTER and MR PORTER</strong> at LuxExperience, Milan.
+      I'm a studio operations specialist and still life photographer with <strong>9 years of cross-disciplinary experience</strong>, from agency creative and corporate media to nearly five years embedded inside <strong>NET-A-PORTER and MR PORTER</strong>, starting with hands-on involvement in setting up NET-A-PORTER's first Italian studio in 2021, and later playing an active role in the Day Zero relocation and launch of the new studio in 2025 following the Mytheresa acquisition and the formation of LuxExperience.
     </p>
     <p>
-      My role has consistently grown beyond the camera. I've managed studio relocations, built internal tools used across the entire photo team, led cross-departmental training programmes, and served as the primary point of contact for technology, equipment, and operational problem-solving.
+      A recurring thread across my career: I'm consistently brought into moments of build, transition, and stabilisation. I've managed studio relocations, built internal tools used across the entire photo team, led cross-departmental training programmes, stepped into operational leadership of a department during management absences, and served as the primary point of contact for technology, equipment, and operational problem-solving.
     </p>
     <p>
-      If something isn't working, I build the fix. That instinct — to identify friction and eliminate it — is what I want to bring to a <strong>senior operations or studio management role</strong> at scale.
+      If something isn't working, I build the fix. That instinct, to identify friction and eliminate it, is what I want to bring to a <strong>senior operations or studio management role</strong> at scale.
     </p>
 
     <div class="about-quote">
@@ -1712,7 +1708,7 @@ footer {
         <span class="sub">contexts.</span>
       </h2>
       <p class="bg-intro">
-        From a Milan creative agency to an international media company, through a decade of freelance — before landing inside one of the most demanding luxury e-commerce studios in Europe.
+        From a Milan creative agency to an international media company, through a decade of freelance, before landing inside one of the most demanding luxury e-commerce studios in Europe.
       </p>
     </div>
 
@@ -1741,7 +1737,7 @@ footer {
           <div class="bg-role">Commercial Photographer · Graphic Designer · Video Editor</div>
           <div class="bg-company">No Words Communication Services · Milano</div>
           <p class="bg-desc">
-            First professional formation in end-to-end content production at a Milan creative agency — brief to delivery, across photography, graphic design, and motion, serving multiple client accounts simultaneously. Built fluency in multi-format production under real commercial pressure.
+            First professional formation in end-to-end content production at a Milan creative agency, from brief to delivery, across photography, graphic design, and motion, serving multiple client accounts simultaneously. Built fluency in multi-format production under real commercial pressure.
           </p>
           <div class="bg-tags">
             <span class="bg-tag">Commercial photography</span>
@@ -1758,7 +1754,7 @@ footer {
           <div class="bg-role">Graphic Designer — Marketing</div>
           <div class="bg-company">Forward, lastminute.com Media Company · Milano</div>
           <p class="bg-desc">
-            First corporate environment — structured workflows, formal production processes, and cross-team dependencies inside an international media company. Delivered visual content across multiple brand accounts simultaneously, operating within the scale and complexity of a large organisation.
+            First corporate environment, with structured workflows, formal production processes, and cross-team dependencies inside an international media company. Delivered visual content across multiple brand accounts simultaneously, operating within the scale and complexity of a large organisation.
           </p>
           <div class="bg-tags">
             <span class="bg-tag">Corporate production</span>
@@ -1770,12 +1766,12 @@ footer {
       </div>
 
       <div class="bg-item">
-        <div class="bg-period"><strong>2021</strong>Present</div>
+        <div class="bg-period"><strong>2021</strong>2025</div>
         <div class="bg-content">
           <div class="bg-role">Still Life Photographer &amp; Studio Operations Specialist</div>
-          <div class="bg-company">LuxExperience · NET-A-PORTER &amp; MR PORTER · Milano</div>
+          <div class="bg-company">NET-A-PORTER &amp; MR PORTER · Milano</div>
           <p class="bg-desc">
-            The convergence of everything prior — creative precision, operational thinking, and the ability to build tools and lead people — inside one of the most demanding luxury e-commerce production environments in Europe. Role grew consistently beyond the camera into full studio operations.
+            The convergence of everything prior: creative precision, operational thinking, and the ability to build tools and lead people, inside one of the most demanding luxury e-commerce production environments in Europe. Joined as part of the team that set up NET-A-PORTER's first Italian studio, and the role grew consistently beyond the camera into full studio operations.
           </p>
           <div class="bg-tags">
             <span class="bg-tag">Luxury still life</span>
@@ -1783,6 +1779,24 @@ footer {
             <span class="bg-tag">Team training</span>
             <span class="bg-tag">Tool building</span>
             <span class="bg-tag">Fine jewellery</span>
+            <span class="bg-tag">Budget &amp; vendor management (Fabric, 2023–24)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-item">
+        <div class="bg-period"><strong>2025</strong>Present</div>
+        <div class="bg-content">
+          <div class="bg-role">Day Zero Relocation &amp; LuxExperience Formation</div>
+          <div class="bg-company">LuxExperience · NET-A-PORTER &amp; MR PORTER · Milano</div>
+          <p class="bg-desc">
+            Following the Mytheresa acquisition of YOOX NET-A-PORTER and the formation of LuxExperience, played an active role in the Day Zero relocation and launch of the new studio during a period of significant organisational change. The second major build-and-transition moment of the same studio journey, four years after the first.
+          </p>
+          <div class="bg-tags">
+            <span class="bg-tag">Organisational change</span>
+            <span class="bg-tag">Studio relocation</span>
+            <span class="bg-tag">Day Zero</span>
+            <span class="bg-tag">Operational continuity</span>
           </div>
         </div>
       </div>
@@ -1842,7 +1856,7 @@ footer {
     <div class="case-body">
       <div class="case-body-inner">
         <div class="case-body-content">
-          <p class="case-desc">During periods of management absence, I stepped into operational leadership of the Accessories department — overseeing daily activities, coordinating the team, and maintaining process continuity without disruption to output or quality. This was alongside my own photography workload, not a replacement for it.</p>
+          <p class="case-desc">During periods of management absence, I stepped into operational leadership of the Accessories department, overseeing daily activities, coordinating the team, and maintaining process continuity without disruption to output or quality. This was alongside my own photography workload, not a replacement for it.</p>
           <div>
             <div class="case-outcome-label">Outcome</div>
             <p class="case-outcome">Zero disruption to department output during leadership gaps. Team continued operating at full capacity. Trusted with department-level responsibility without a formal title change.</p>
@@ -1868,7 +1882,7 @@ footer {
     <div class="case-body">
       <div class="case-body-inner">
         <div class="case-body-content">
-          <p class="case-desc">When NET-A-PORTER relocated to a new Milan facility under LuxExperience, I coordinated Day Zero set-up activities and supported the team through the move — designing and building new shooting sets, and recovering and reusing equipment from the previous studio to reduce procurement costs, all while maintaining production continuity and keeping shoot targets on track.</p>
+          <p class="case-desc">Following the Mytheresa acquisition of YOOX NET-A-PORTER and the formation of LuxExperience, the studio relocated to a new Milan facility. I played an active role in the Day Zero set-up and supported the team through the move during a period of significant organisational change. This included designing and building new shooting sets, and recovering and reusing equipment from the previous studio to reduce procurement costs, all while maintaining production continuity and keeping shoot targets on track.</p>
           <div>
             <div class="case-outcome-label">Outcome</div>
             <p class="case-outcome">Full studio operational within schedule. Reduced new equipment spend through recovery and reuse. Zero disruption to production output during transition.</p>
@@ -1894,7 +1908,7 @@ footer {
     <div class="case-body">
       <div class="case-body-inner">
         <div class="case-body-content">
-          <p class="case-desc">Shot reference documentation for NAP and MRP existed in scattered PDFs and OneNote notebooks — inaccessible mid-shoot, inconsistent across photographers. I designed and built a web-based tool centralising all 338 shot references across both brands, with full-text search, brand switching, and a producer edit mode. I later built a second tool — an operational dashboard for daily task monitoring and team coordination. Both remain in active daily use.</p>
+          <p class="case-desc">Shot reference documentation for NAP and MRP existed in scattered PDFs and OneNote notebooks, inaccessible mid-shoot and inconsistent across photographers. I designed and built a web-based tool centralising all 338 shot references across both brands, with full-text search, brand switching, and a producer edit mode. I later built a second tool: an operational dashboard for daily task monitoring and team coordination. Both remain in active daily use.</p>
           <div>
             <div class="case-outcome-label">Outcome</div>
             <p class="case-outcome">Single source of truth for the entire photo team. Reduced briefing time and shot errors. Two tools in continuous daily use, built independently with no engineering support.</p>
@@ -1920,7 +1934,7 @@ footer {
     <div class="case-body">
       <div class="case-body-inner">
         <div class="case-body-content">
-          <p class="case-desc">As the photography team's primary reference point for the Madame project, I supported the adoption of a new global workflow platform — coordinating directly with the implementation teams, collecting structured feedback, running testing cycles for each update, and translating technical requirements into practical guidance for photographers and managers over multiple months.</p>
+          <p class="case-desc">As the photography team's primary reference point for the Madame project, I supported the adoption of a new global workflow platform. This meant coordinating directly with the implementation teams, collecting structured feedback, running testing cycles for each update, and translating technical requirements into practical guidance for photographers and managers over multiple months.</p>
           <div>
             <div class="case-outcome-label">Outcome</div>
             <p class="case-outcome">Full studio adoption. DC4 brought to global standard. Technical support described by management as "extremely important, especially when things get very technical."</p>
@@ -1946,10 +1960,10 @@ footer {
     <div class="case-body">
       <div class="case-body-inner">
         <div class="case-body-content">
-          <p class="case-desc">Identified a systemic bottleneck in the photographer workflow — manual product logging was creating overhead across all workstations. Proposed and implemented barcode readers integrated into the existing system. Beyond this, I hold ongoing responsibility for the full equipment and technical material lifecycle: inventory, maintenance, camera repair, procurement, and kit preparation for MPS, castings, and external shoots.</p>
+          <p class="case-desc">Identified a systemic bottleneck in the photographer workflow: manual product logging was creating overhead across all workstations. Proposed and implemented barcode readers integrated into the existing system. Beyond this, I hold ongoing responsibility for the full equipment and technical material lifecycle, including inventory, maintenance, camera repair, procurement, and kit preparation for MPS, castings, and external shoots.</p>
           <div>
             <div class="case-outcome-label">Outcome</div>
-            <p class="case-outcome">Immediate reduction in overhead. Adopted across all workstations. Equipment operations described as "always perfect" — trusted without oversight.</p>
+            <p class="case-outcome">Immediate reduction in overhead. Adopted across all workstations. Equipment operations described as "always perfect," trusted without oversight.</p>
           </div>
         </div>
       </div>
@@ -1988,7 +2002,7 @@ footer {
 <section id="skills">
   <div class="skills-header">
     <h2 class="skills-h">Skills<br>&amp;<br><span class="red">Tools</span></h2>
-    <p class="skills-intro">Technical fluency across photography, post-production, and studio operations — with enough development knowledge to build the tools the team needs.</p>
+    <p class="skills-intro">Technical fluency across photography, post-production, and studio operations, with enough development knowledge to build the tools the team needs.</p>
   </div>
 
   <div class="skills-cols">
@@ -2024,35 +2038,28 @@ footer {
   <div class="section-tag">Photography</div>
   <div class="photo-header">
     <h2 class="photo-h">Selected<br>Work</h2>
-    <p class="photo-sub">Still life specialist in luxury fashion, jewellery, and accessories — highest output targets in the studio, minimal revisions.</p>
+    <p class="photo-sub">Still life specialist in luxury fashion, jewellery, and accessories, with the highest output targets in the studio and minimal revisions.</p>
   </div>
   <div class="photo-grid">
-    <div class="photo-cell" data-label="Fine Jewellery">
-      <svg class="photo-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span class="photo-cell-l">Fine Jewellery</span>
+    <div class="photo-cell has-img" data-label="Fine Jewellery">
+      <img src="images/fine-jewellery-01.jpg" alt="Fine Jewellery still life photography" loading="lazy">
     </div>
-    <div class="photo-cell" data-label="Accessories">
-      <svg class="photo-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span class="photo-cell-l">Accessories</span>
+    <div class="photo-cell has-img" data-label="Fine Jewellery">
+      <img src="images/fine-jewellery-02.jpg" alt="Fine Jewellery still life photography, detail" loading="lazy">
     </div>
-    <div class="photo-cell" data-label="Shoes & Bags">
-      <svg class="photo-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span class="photo-cell-l">Shoes &amp; Bags</span>
+    <div class="photo-cell has-img" data-label="Fine Jewellery">
+      <img src="images/fine-jewellery-03.jpg" alt="Fine Jewellery still life photography, rings" loading="lazy">
     </div>
-    <div class="photo-cell" data-label="Ready-to-Wear">
-      <svg class="photo-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span class="photo-cell-l">Ready-to-Wear</span>
+    <div class="photo-cell has-img" data-label="Fine Jewellery">
+      <img src="images/fine-jewellery-mrp.jpg" alt="Fine Jewellery still life photography, flat lay" loading="lazy">
     </div>
-    <div class="photo-cell" data-label="Eyewear">
-      <svg class="photo-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span class="photo-cell-l">Eyewear</span>
+    <div class="photo-cell has-img" data-label="Fine Watches">
+      <img src="images/fine-watches.jpg" alt="Fine Watches still life photography" loading="lazy">
     </div>
-    <div class="photo-cell" data-label="Brand Specific">
-      <svg class="photo-cell-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span class="photo-cell-l">Brand Specific</span>
+    <div class="photo-cell has-img" data-label="On Model">
+      <img src="images/on-model.jpg" alt="On-model fashion photography" loading="lazy">
     </div>
   </div>
-  <p class="photo-note">Images pending rights confirmation — coming soon.</p>
 </section>
 
 <!-- CONTACT -->
@@ -2064,7 +2071,7 @@ footer {
         Let's build<br>
         <span class="red">together.</span>
       </h2>
-      <p class="contact-p">Open to senior roles in luxury fashion photography, studio operations, and creative team leadership — in Milan and internationally.</p>
+      <p class="contact-p">Open to senior roles in luxury fashion photography, studio operations, and creative team leadership, in Milan and internationally.</p>
       <div class="clinks">
         <a href="mailto:alberto.barbarotta@gmail.com" class="clink">
           <span class="clink-n">Email</span>
@@ -2100,7 +2107,7 @@ footer {
           <span class="avail-yr">2026</span>
         </div>
         <h3 class="avail-t">Senior operations &amp; photography roles</h3>
-        <p class="avail-p">Looking for positions where systematic thinking and creative expertise work together — studio management, creative operations, or senior photographer roles with real team and process responsibility.</p>
+        <p class="avail-p">Looking for positions where systematic thinking and creative expertise work together: studio management, creative operations, or senior photographer roles with real team and process responsibility.</p>
         <div class="avail-roles">
           <span class="avail-role">Studio Manager</span>
           <span class="avail-role">Photo Producer</span>
